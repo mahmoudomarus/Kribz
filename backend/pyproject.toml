@@ -1,8 +1,8 @@
 [project]
-name = "suna"
-version = "1.0"
-description = "open source generalist AI Agent"
-authors = [{ name = "marko-kraemer", email = "mail@markokraemer.com" }]
+name = "krib-ai-backend"
+version = "0.1.0"
+description = "AI-Powered Rental Platform Backend"
+authors = ["Krib AI Team <info@krib.ai>"]
 readme = "README.md"
 license = { text = "Apache-2.0" }
 classifiers = [
@@ -70,7 +70,7 @@ dependencies = [
 
 [project.urls]
 homepage = "https://www.suna.so/"
-repository = "https://github.com/kortix-ai/suna"
+repository = "https://github.com/mahmoudomarus/Kribz"
 
 [tool.uv]
 package = false

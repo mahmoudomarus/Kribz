@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: 'Kortix Suna',
-  url: 'https://suna.so/',
-  description: 'Kortix AI',
+  name: 'Krib AI',
+  url: 'https://krib.ai/',
+  description: 'AI-Powered Rental Platform',
   links: {
-    twitter: 'https://x.com/kortixai',
-    github: 'https://github.com/kortix-ai/',
-    linkedin: 'https://www.linkedin.com/company/kortix/',
+    twitter: 'https://x.com/kribai',
+    github: 'https://github.com/mahmoudomarus/',
+    linkedin: 'https://www.linkedin.com/company/krib/',
   },
 };
 
