@@ -177,8 +177,8 @@ class Configuration:
     XAI_API_KEY: Optional[str] = None
     MORPH_API_KEY: Optional[str] = None
     OPENROUTER_API_BASE: Optional[str] = "https://openrouter.ai/api/v1"
-    OR_SITE_URL: Optional[str] = "https://kortix.ai"
-    OR_APP_NAME: Optional[str] = "Kortix AI"    
+    OR_SITE_URL: Optional[str] = "https://krib.ai"
+    OR_APP_NAME: Optional[str] = "Krib AI"
     
     # AWS Bedrock credentials
     AWS_ACCESS_KEY_ID: Optional[str] = None
@@ -222,8 +222,8 @@ class Configuration:
     STRIPE_PRODUCT_ID_STAGING: str = 'prod_SCgIj3G7yPOAWY'
     
     # Sandbox configuration
-    SANDBOX_IMAGE_NAME = "kortix/suna:0.1.3"
-    SANDBOX_SNAPSHOT_NAME = "kortix/suna:0.1.3"
+    SANDBOX_IMAGE_NAME = "krib/agent-runtime:latest"
+    SANDBOX_SNAPSHOT_NAME = "krib/agent-runtime:latest"
     SANDBOX_ENTRYPOINT = "/usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf"
 
     # LangFuse configuration
