@@ -4,8 +4,6 @@
 
 (Intelligent agents for property rentals and bookings)
 
-![Krib Screenshot](frontend/public/banner.png)
-
 Krib is a comprehensive AI-powered rental platform that revolutionizes both short-term and long-term property rental experiences. Through intelligent agents, Krib automates the entire rental process from search to contract signing, making property rentals as simple as having a conversation with your AI assistant.
 
 **For Short-Term Rentals (Airbnb-style)**: AI agents handle property search, booking coordination, payment processing, and guest services - essentially booking your perfect vacation rental for you automatically.
