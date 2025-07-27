@@ -38,6 +38,7 @@ def initialize():
             retry_on_timeout=True,
             health_check_interval=30,
             max_connections=128,
+            ssl_cert_reqs=None,  # Skip SSL certificate verification for Heroku Redis
         )
     else:
         # Fallback to individual components for Docker/local development
