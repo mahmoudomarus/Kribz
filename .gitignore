@@ -7,9 +7,6 @@
 # API Keys documentation (contains actual keys)
 REQUIRED_API_KEYS.md
 
-# Development guidelines (local only)
-.rules.md
-
 # Dependencies
 node_modules/
 __pycache__/
