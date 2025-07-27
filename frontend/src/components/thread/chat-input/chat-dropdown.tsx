@@ -15,19 +15,13 @@ const ChatDropdown = () => {
     return (
         <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
             <DropdownMenuTrigger asChild>
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    className="px-3 py-2 text-sm font-medium hover:bg-accent"
-                    style={{
-                        borderRadius: '12px'
-                    }}
+                <Button 
+                    variant="ghost" 
+                    className="flex items-center gap-2 px-3 py-1 h-8 text-sm font-medium hover:bg-accent rounded-lg"
                 >
-                    <div className="flex items-center gap-2">
-                        <Image src="/krib-symbol.svg" alt="Krib AI" width={16} height={16} className="h-4 w-4" />
-                        <span>Krib AI</span>
-                        <ChevronDown size={14} className="opacity-50" />
-                    </div>
+                    <Bot size={16} className="text-primary" />
+                    <span>Krib AI</span>
+                    <ChevronDown size={14} className="text-muted-foreground" />
                 </Button>
             </DropdownMenuTrigger>
 
