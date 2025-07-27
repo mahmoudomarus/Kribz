@@ -11,7 +11,7 @@ from ..models.property_models import (
     PropertyAvailability, PropertyType
 )
 from ..services.property_service import PropertyService
-from ...dependencies import get_property_service, get_current_user
+from dependencies import get_property_service, get_current_user
 
 router = APIRouter(prefix="/properties", tags=["Properties"])
 

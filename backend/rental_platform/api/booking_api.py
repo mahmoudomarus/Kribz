@@ -12,7 +12,7 @@ from ..models.booking_models import (
     BookingSearchResult, ApplicationSearchResult
 )
 from ..services.booking_service import BookingService
-from ...dependencies import get_booking_service, get_current_user
+from dependencies import get_booking_service, get_current_user
 
 router = APIRouter(prefix="/bookings", tags=["Bookings & Applications"])
 
