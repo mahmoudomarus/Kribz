@@ -4,7 +4,7 @@ from .booking_models import (
     BookingRequest, RentalApplication, ViewingSchedule,
     BookingStatus, ApplicationStatus, ViewingStatus
 )
-from .contract_models import Contract, ViewingSchedule
+from .contract_models import Contract
 from .payment_models import CommissionTracking
 
 __all__ = [
