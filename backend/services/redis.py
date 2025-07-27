@@ -23,32 +23,43 @@ def initialize():
     # Load environment variables if not already loaded
     load_dotenv()
 
-    # Get Redis configuration
-    redis_host = os.getenv("REDIS_HOST", "redis")
-    redis_port = int(os.getenv("REDIS_PORT", 6379))
-    redis_password = os.getenv("REDIS_PASSWORD", "")
+    # Check for REDIS_URL first (Heroku style)
+    redis_url = os.getenv("REDIS_URL")
     
-    # Connection pool configuration - optimized for production
-    max_connections = 128            # Reasonable limit for production
-    socket_timeout = 15.0            # 15 seconds socket timeout
-    connect_timeout = 10.0           # 10 seconds connection timeout
-    retry_on_timeout = not (os.getenv("REDIS_RETRY_ON_TIMEOUT", "True").lower() != "true")
-
-    logger.info(f"Initializing Redis connection pool to {redis_host}:{redis_port} with max {max_connections} connections")
-
-    # Create connection pool with production-optimized settings
-    pool = redis.ConnectionPool(
-        host=redis_host,
-        port=redis_port,
-        password=redis_password,
-        decode_responses=True,
-        socket_timeout=socket_timeout,
-        socket_connect_timeout=connect_timeout,
-        socket_keepalive=True,
-        retry_on_timeout=retry_on_timeout,
-        health_check_interval=30,
-        max_connections=max_connections,
-    )
+    if redis_url:
+        # Use REDIS_URL for Heroku deployment
+        logger.info(f"Using REDIS_URL for connection: {redis_url[:50]}...")
+        pool = redis.ConnectionPool.from_url(
+            redis_url,
+            decode_responses=True,
+            socket_timeout=15.0,
+            socket_connect_timeout=10.0,
+            socket_keepalive=True,
+            retry_on_timeout=True,
+            health_check_interval=30,
+            max_connections=128,
+        )
+    else:
+        # Fallback to individual components for Docker/local development
+        redis_host = os.getenv("REDIS_HOST", "redis")
+        redis_port = int(os.getenv("REDIS_PORT", 6379))
+        redis_password = os.getenv("REDIS_PASSWORD", "")
+        
+        logger.info(f"Using Redis host configuration: {redis_host}:{redis_port}")
+        
+        # Create connection pool with production-optimized settings
+        pool = redis.ConnectionPool(
+            host=redis_host,
+            port=redis_port,
+            password=redis_password,
+            decode_responses=True,
+            socket_timeout=15.0,
+            socket_connect_timeout=10.0,
+            socket_keepalive=True,
+            retry_on_timeout=True,
+            health_check_interval=30,
+            max_connections=128,
+        )
 
     # Create Redis client from connection pool
     client = redis.Redis(connection_pool=pool)
