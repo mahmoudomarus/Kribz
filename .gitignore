@@ -7,6 +7,9 @@
 # API Keys documentation (contains actual keys)
 REQUIRED_API_KEYS.md
 
+# Development guidelines (local only)
+.rules.md
+
 # Dependencies
 node_modules/
 __pycache__/
@@ -106,3 +109,4 @@ dist/
 # Temporary directories
 tmp/
 temp/
+.vercel

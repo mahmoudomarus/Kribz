@@ -30,6 +30,8 @@ import sys
 from services import email_api
 from triggers import api as triggers_api
 from triggers.endpoints.workflows import router as workflows_router
+from rental_platform.api.property_api import router as property_router
+from rental_platform.api.booking_api import router as booking_router
 
 
 if sys.platform == "win32":
@@ -223,6 +225,8 @@ async def health_check():
 
 
 app.include_router(api_router, prefix="/api")
+app.include_router(property_router, prefix="/api/v1/rental", tags=["Rental Platform"])
+app.include_router(booking_router, prefix="/api/v1/rental", tags=["Rental Platform"])
 
 
 if __name__ == "__main__":
