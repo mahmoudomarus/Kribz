@@ -243,7 +243,7 @@ export const siteConfig = {
         '$400 AI token credits/month',
         'Private projects',
         'Premium AI Models',
-        'Full Suna AI access',
+        'Full Krib AI access',
         'Community support',
         'Custom integrations',
         'Dedicated account manager',
@@ -268,7 +268,7 @@ export const siteConfig = {
         '$800 AI token credits/month',
         'Private projects',
         'Premium AI Models',
-        'Full Suna AI access',
+        'Full Krib AI access',
         'Community support',
         'Custom integrations',
         'Dedicated account manager',
@@ -294,7 +294,7 @@ export const siteConfig = {
         '$1000 AI token credits/month',
         'Private projects',
         'Premium AI Models',
-        'Full Suna AI access',
+        'Full Krib AI access',
         'Priority support',
         'Custom integrations',
         'Dedicated account manager',
@@ -509,9 +509,9 @@ export const siteConfig = {
     ],
   },
   featureSection: {
-    title: 'How Kortix Suna Works',
+    title: 'How Krib AI Works',
     description:
-      'Discover how Kortix Suna transforms your commands into action in four easy steps',
+      'Discover how Krib AI transforms your rental search into action in four easy steps',
     items: [
       {
         id: 1,

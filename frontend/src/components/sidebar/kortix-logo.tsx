@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-interface KortixLogoProps {
+interface KribLogoProps {
   size?: number;
 }
-export function KortixLogo({ size = 24 }: KortixLogoProps) {
+export function KribLogo({ size = 24 }: KribLogoProps) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -16,17 +16,20 @@ export function KortixLogo({ size = 24 }: KortixLogoProps) {
     setMounted(true);
   }, []);
 
-  const shouldInvert = mounted && (
+  const shouldUseWhite = mounted && (
     theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
   );
 
   return (
     <Image
-        src="/kortix-symbol.svg"
-        alt="Kortix"
+        src={shouldUseWhite ? "/krib-symbol.svg" : "/krib-symbol.svg"}
+        alt="Krib AI"
         width={size}
         height={size}
-        className={`${shouldInvert ? 'invert' : ''} flex-shrink-0`}
+        className="flex-shrink-0"
       />
   );
 }
+
+// Backward compatibility export
+export const KortixLogo = KribLogo;
