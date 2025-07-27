@@ -33,9 +33,10 @@ export function FooterSection() {
             <Image
               src={logoSrc}
               alt="Krib AI Logo"
-              width={122}
-              height={22}
+              width={110}
+              height={40}
               priority
+              className="h-8 w-auto"
             />
           </Link>
           <p className="tracking-tight text-muted-foreground font-medium">

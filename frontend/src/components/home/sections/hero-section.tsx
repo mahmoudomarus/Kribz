@@ -313,7 +313,7 @@ export function HeroSection() {
                 <ChatInput
                   ref={chatInputRef}
                   onSubmit={handleChatInputSubmit}
-                  placeholder="Describe what you need help with..."
+                  placeholder={siteConfig.hero.inputPlaceholder}
                   loading={isSubmitting}
                   disabled={isSubmitting}
                   value={inputValue}

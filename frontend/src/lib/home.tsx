@@ -939,7 +939,7 @@ export const siteConfig = {
           'Community support',
         ],
         description: 'Perfect for individual users and developers',
-        buttonText: 'Hire Suna',
+        buttonText: 'Find Properties',
         buttonColor: 'bg-accent text-primary',
         isPopular: false,
       },
@@ -1189,43 +1189,43 @@ export const siteConfig = {
   faqSection: {
     title: 'Frequently Asked Questions',
     description:
-      "Answers to common questions about Kortix Suna and its capabilities. If you have any other questions, please don't hesitate to contact us.",
+      "Answers to common questions about Krib AI and its rental platform capabilities. If you have any other questions, please don't hesitate to contact us.",
     faQitems: [
       {
         id: 1,
-        question: 'What is an AI Agent?',
+        question: 'What is Krib AI?',
         answer:
-          'An AI Agent is an intelligent software program that can perform tasks autonomously, learn from interactions, and make decisions to help achieve specific goals. It combines artificial intelligence and machine learning to provide personalized assistance and automation.',
+          'Krib AI is an intelligent rental platform that uses AI agents to help with property search, booking, application processing, and rental management. It serves both short-term (vacation) and long-term rental markets with automated workflows.',
       },
       {
         id: 2,
-        question: 'How does Kortix Suna work?',
+        question: 'How does Krib AI work?',
         answer:
-          'Kortix Suna works by analyzing your requirements, leveraging advanced AI algorithms to understand context, and executing tasks based on your instructions. It can integrate with your workflow, learn from feedback, and continuously improve its performance.',
+          'Krib AI works by analyzing your rental requirements, leveraging advanced AI algorithms to search properties, coordinate viewings, process applications, and manage bookings. It can integrate with DocuSign for contracts and Stripe for payments.',
       },
       {
         id: 3,
-        question: 'Is Kortix Suna really free?',
+        question: 'Is Krib AI free to use?',
         answer:
-          'Yes, Kortix Suna is completely free and open source. We believe in democratizing AI technology and making it accessible to everyone. You can use it, modify it, and contribute to its development without any cost.',
+          'Krib AI offers different pricing tiers for different user types: free for guests searching properties, and paid plans for hosts, real estate agents, and enterprise clients with advanced features and higher usage limits.',
       },
       {
         id: 4,
-        question: 'Can I integrate Suna with my existing tools?',
+        question: 'Can I integrate Krib AI with my existing tools?',
         answer:
-          'Yes, Kortix Suna is designed to be highly compatible with popular tools and platforms. We offer APIs and pre-built integrations for seamless connection with your existing workflow tools and systems.',
+          'Yes, Krib AI is designed to integrate with popular real estate and property management tools. We offer APIs and built-in integrations with DocuSign, Stripe, Google Maps, and other essential rental platform services.',
       },
       {
         id: 5,
-        question: 'How can I contribute to Kortix Suna?',
+        question: 'What types of rentals does Krib AI support?',
         answer:
-          'You can contribute to Kortix Suna by submitting pull requests on GitHub, reporting bugs, suggesting new features, or helping with documentation. Join our Discord community to connect with other contributors and Hire Suna.',
+          'Krib AI supports both short-term vacation rentals (like Airbnb) and long-term residential rentals. Our AI agents can handle property search, booking coordination, application processing, contract generation, and commission tracking.',
       },
       {
         id: 6,
-        question: 'How does Kortix Suna save me time?',
+        question: 'How does Krib AI save me time in rental management?',
         answer:
-          'Kortix Suna automates repetitive tasks, streamlines workflows, and provides quick solutions to common challenges. This automation and efficiency can save hours of manual work, allowing you to focus on more strategic activities.',
+          'Krib AI automates repetitive rental tasks like property search, viewing coordination, application screening, contract generation, and payment processing. This automation can save hours of manual work for hosts, agents, and tenants.',
       },
     ],
   },

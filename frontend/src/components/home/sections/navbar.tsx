@@ -130,9 +130,10 @@ export function Navbar() {
               <Image
                 src={logoSrc}
                 alt="Krib AI Logo"
-                width={140}
-                height={22}
+                width={100}
+                height={40}
                 priority
+                className="h-8 w-auto"
               /> 
             </Link>
 
@@ -209,9 +210,10 @@ export function Navbar() {
                     <Image
                       src={logoSrc}
                       alt="Krib AI Logo"
-                      width={120}
-                      height={22}
+                      width={90}
+                      height={36}
                       priority
+                      className="h-7 w-auto"
                     />
                     <span className="font-medium text-primary text-sm">
                       / Suna
