@@ -1,0 +1,216 @@
+# 🚀 Krib AI Development Rules & Guidelines
+
+## ⚠️ **CRITICAL REMINDER - MAIN OBJECTIVE**
+
+**WE ARE BUILDING A RENTAL PLATFORM, NOT DEPLOYING SUNA AS-IS!**
+
+### **🎯 Primary Mission**: 
+Transform SUNA into **Krib AI** - a multi-agent **rental platform** with:
+- **Short-term rentals** (Airbnb-style booking agents)
+- **Long-term rentals** (Real estate viewing, applications, DocuSign contracts)
+- **Property search, booking, and commission processing**
+
+### **📋 Current Status**: 
+- ✅ Deployed SUNA platform (wrong!)
+- ✅ **Frontend branding updated to Krib AI**
+- 🔲 **Need to build actual rental platform features**
+- 🔲 **Follow tasks.md systematically**
+- 🔲 **Implement report.pdf requirements**
+
+---
+
+## 📋 **Core Principles**
+
+### ❌ **NEVER DO:**
+- **Deploy without implementing requirements** - MAJOR MISTAKE MADE!
+- **No workarounds** - Always implement proper solutions
+- **No placeholders** - Use real values, real keys, real configurations
+- **No mockups** - Build functional, production-ready components
+- **No fake data** - Use actual data sources and APIs
+- **No shortcuts** - Follow systematic integration patterns
+- **DON'T FORGET THE MAIN OBJECTIVE** - Always refer back to tasks.md!
+
+### ✅ **ALWAYS DO:**
+- **Follow tasks.md systematically** - This is the roadmap!
+- **Read report.pdf requirements** - Core technical specifications
+- **Ask when uncertain** - Confirm requirements before implementing
+- **Use best practices** - Follow established patterns and conventions
+- **Systematic integration** - Plan and execute methodically
+- **Clean code** - Readable, maintainable, well-documented
+- **Track versions** - Document changes and maintain version history
+- **Check progress against tasks.md regularly**
+- **⭐ UPDATE TASKS.MD WHEN FINISHING TASKS** - Mark completed tasks
+- **⭐ PUSH CHANGES WHEN COMPLETING FEATURES** - Deploy to Vercel/Heroku
+
+---
+
+## 🎯 **Rental Platform Requirements (from tasks.md)**
+
+### **🏠 Core Features Needed:**
+1. **Property Management** - Short-term & long-term listings
+2. **AI Booking Agents** - Automated vacation rental booking
+3. **Viewing Coordination** - Real estate property tours
+4. **Application Processing** - Tenant screening and applications
+5. **DocuSign Contracts** - Automated tenancy agreements
+6. **Commission Processing** - Stripe integration for payments
+7. **Multi-Dashboard UI** - Guests, Hosts, Agents, Admin
+
+### **✅ What We Have Now (Updated):**
+- ✅ SUNA backend infrastructure (repurposed for rental platform)
+- ✅ Rental platform database schema (properties, bookings, applications, contracts)
+- ✅ Frontend branding updated to Krib AI
+- ✅ Rental-specific use cases and messaging
+- 🔲 Functional rental property APIs
+- 🔲 Booking and application workflows
+- 🔲 DocuSign and rental-specific integrations
+
+---
+
+## 🛠️ **Technical Standards**
+
+### **Environment Configuration**
+- Always use proper environment variables
+- Never hardcode API keys or sensitive data
+- Use `.env.example` templates for documentation
+- Configure proper `.gitignore` for security
+
+### **Deployment Process**
+1. **Backend (Heroku)**:
+   - Use `requirements.txt` and `runtime.txt`
+   - Set all environment variables properly
+   - Scale web + worker dynos
+   - Test endpoints before frontend deployment
+
+2. **Frontend (Vercel)**:
+   - Use `vercel.json` for configuration
+   - Set all `NEXT_PUBLIC_*` environment variables
+   - Configure build and output directories
+   - Test deployment before going live
+
+3. **⭐ TASK COMPLETION WORKFLOW**:
+   - Mark tasks as completed in tasks.md
+   - Commit changes with descriptive messages
+   - Push to trigger deployment (Vercel auto-deploys)
+   - Verify deployment works correctly
+   - Update progress documentation
+
+### **Integration Patterns**
+- **Database**: Supabase with RLS (Row Level Security)
+- **Authentication**: Supabase Auth + JWT validation
+- **API Design**: OpenAPI-first with FastAPI
+- **State Management**: React Query for server state
+- **Styling**: Tailwind CSS with shadcn/ui components
+
+---
+
+## 📚 **Critical Information to Remember**
+
+### **Current Deployment URLs**
+- **Backend**: https://kribai-f4ba8309f76d.herokuapp.com/
+- **Frontend**: https://frontend-beta-roan-44.vercel.app/ (updated with Krib AI branding)
+- **Database**: https://rbsswyljndnvrjnfexya.supabase.co
+
+### **What Needs to Be Built (FROM TASKS.MD)**
+- **Phase 0**: ✅ Infrastructure (done) 
+- **Phase 1**: 🔲 Core API Services (rental-specific)
+- **Phase 2**: 🔲 AI Agent System (booking/application agents)  
+- **Phase 3**: ✅ Frontend branding (done) → 🔲 Frontend functionality
+- **Phase 4**: 🔲 Integration (DocuSign, Stripe)
+
+### **Key Services to Implement**
+- Property Service (short-term + long-term)
+- Booking/Application Service
+- DocuSign Integration Service  
+- Commission/Payment Service (Stripe)
+- AI Rental Agents (PropertySearch, BookingAssistant, etc.)
+
+---
+
+## 🔧 **Development Workflow**
+
+### **Before Starting Any Feature:**
+1. **Check tasks.md** - Understand the rental platform requirements
+2. **Reference report.pdf** - Get technical specifications  
+3. **Plan rental-specific architecture** - Not generic AI agents!
+4. **Identify rental dependencies** - Properties, bookings, contracts
+5. **Ask questions about rental workflows** - Short vs long-term flows
+
+### **During Development:**
+1. **Build rental platform features** - Not generic agent tools
+2. **Implement property/booking workflows** - Core rental logic
+3. **Add DocuSign/Stripe integrations** - Essential rental features
+4. **Test rental scenarios** - Booking flows, applications, contracts
+5. **Document rental API changes** - Property management, bookings
+
+### **⭐ After Completing Any Task:**
+1. **Update tasks.md** - Mark the specific task as completed [x]
+2. **Commit changes** - Use descriptive commit messages
+3. **Push to Git** - Trigger automatic Vercel deployment for frontend
+4. **Verify deployment** - Test that changes work in production
+5. **Update progress documentation** - Keep stakeholders informed
+
+### **Before Deployment:**
+1. **Verify rental features work** - Property search, booking, applications
+2. **Test DocuSign integration** - Contract generation and signing
+3. **Validate Stripe payments** - Commission processing
+4. **Check rental dashboards** - Host, agent, tenant interfaces
+5. **Test end-to-end rental flows** - Short and long-term processes
+
+---
+
+## 🚨 **Quality Assurance**
+
+### **Before Pushing Code**
+- [ ] Rental features implemented (not generic agents)
+- [ ] Property management working
+- [ ] Booking/application flows tested  
+- [ ] DocuSign integration functional
+- [ ] Commission processing working
+- [ ] Rental dashboards responsive
+- [ ] **⭐ tasks.md progress updated**
+
+### **Before Going Live**
+- [ ] All rental workflows tested
+- [ ] Property search functional
+- [ ] Booking automation working
+- [ ] Contract generation tested
+- [ ] Payment processing verified
+- [ ] All user roles tested
+- [ ] **⭐ Documentation updated**
+- [ ] **⭐ Vercel/Heroku deployment verified**
+
+---
+
+## 📞 **When to Ask for Clarification**
+
+- **Unclear rental workflow requirements**
+- **Property management specifics**  
+- **Booking vs application process differences**
+- **DocuSign contract template details**
+- **Commission calculation rules**
+- **Short-term vs long-term feature differences**
+
+---
+
+## 🔄 **Recovery Action Plan**
+
+### **Current Status**: ✅ Frontend branding updated → Building rental features
+
+### **Immediate Next Steps**:
+1. **✅ Frontend branding completed**
+2. **Start building rental features systematically**
+3. **Follow tasks.md Phase 1: Core API Services**
+4. **Create property management endpoints**
+5. **Implement booking/application workflows**
+6. **Add DocuSign integration**
+7. **Build rental-specific dashboards**
+
+---
+
+**Remember: We're building a RENTAL PLATFORM, not a generic AI agent system!**
+**Always check progress against tasks.md and rental platform requirements!**
+**⭐ ALWAYS UPDATE TASKS.MD AND PUSH CHANGES WHEN COMPLETING WORK!**
+description:
+globs:
+alwaysApply: false
+---
