@@ -1,12 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface KribLogoProps {
   size?: number;
 }
+
 export function KribLogo({ size = 24 }: KribLogoProps) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -22,7 +23,7 @@ export function KribLogo({ size = 24 }: KribLogoProps) {
 
   return (
     <Image
-        src={shouldUseWhite ? "/krib-symbol.svg" : "/krib-symbol.svg"}
+        src={shouldUseWhite ? "/krib-logo-white.svg" : "/krib-symbol.svg"}
         alt="Krib AI"
         width={size}
         height={size}

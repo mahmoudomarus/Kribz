@@ -1,7 +1,7 @@
 'use client';
 import { siteConfig } from '@/lib/home';
 import { ArrowRight, Github, X, AlertCircle, Square } from 'lucide-react';
-import { FlickeringGrid } from '@/components/home/ui/flickering-grid';
+import { RealEstateBackground } from '@/components/home/ui/real-estate-background';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { useScroll } from 'motion/react';
@@ -227,13 +227,8 @@ export function HeroSection() {
           {/* Vertical fade to bottom */}
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background via-background/90 to-transparent z-10" />
 
-          <FlickeringGrid
+          <RealEstateBackground
             className="h-full w-full"
-            squareSize={mounted && tablet ? 2 : 2.5}
-            gridGap={mounted && tablet ? 2 : 2.5}
-            color="var(--secondary)"
-            maxOpacity={0.4}
-            flickerChance={isScrolling ? 0.01 : 0.03} // Low flickering when not scrolling
           />
         </div>
 
@@ -248,13 +243,8 @@ export function HeroSection() {
           {/* Vertical fade to bottom */}
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background via-background/90 to-transparent z-10" />
 
-          <FlickeringGrid
+          <RealEstateBackground
             className="h-full w-full"
-            squareSize={mounted && tablet ? 2 : 2.5}
-            gridGap={mounted && tablet ? 2 : 2.5}
-            color="var(--secondary)"
-            maxOpacity={0.4}
-            flickerChance={isScrolling ? 0.01 : 0.03} // Low flickering when not scrolling
           />
         </div>
 
