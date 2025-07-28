@@ -7,12 +7,17 @@ import { useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { generateRandomAvatar } from '@/lib/utils/_avatar-generator';
 import { DEFAULT_AGENTPRESS_TOOLS } from '@/components/agents/tools';
+import { useAuth } from '@/components/AuthProvider';
 
 export const useAgents = (params: AgentsParams = {}) => {
+  const { user, isLoading } = useAuth();
+  
   return createQueryHook(
     agentKeys.list(params),
     () => getAgents(params),
     {
+      // Only fetch when user is authenticated and not loading
+      enabled: !!user && !isLoading,
       staleTime: 5 * 60 * 1000,
       gcTime: 10 * 60 * 1000,
     }
