@@ -142,18 +142,17 @@ allowed_origins = ["https://www.krib.ai", "https://krib.ai"]
 allow_origin_regex = None
 
 # Add staging-specific origins
-if config.ENV_MODE == EnvMode.LOCAL:
-    allowed_origins.append("http://localhost:3000")
-
-# Add staging-specific origins
 if config.ENV_MODE == EnvMode.STAGING:
-    allowed_origins.append("https://staging.krib.ai")
-    allowed_origins.append("http://localhost:3000")
-    allow_origin_regex = r"https://frontend-.*-mahmoud-omars-projects-.*\.vercel\.app"
+    allowed_origins.extend([
+        "https://staging.krib.ai",
+        "http://localhost:3000",
+        "https://frontend-beta-roan-44.vercel.app"  # Add the actual Vercel URL
+    ])
+    allow_origin_regex = r"https://frontend-.*\.vercel\.app"
 
-# Add all Vercel preview domains for production
+# Add all Vercel preview domains for production  
 if config.ENV_MODE in [EnvMode.STAGING, EnvMode.PRODUCTION]:
-    allow_origin_regex = r"https://frontend-.*-mahmoud-omars-projects-.*\.vercel\.app"
+    allow_origin_regex = r"https://frontend-.*\.vercel\.app"
 
 app.add_middleware(
     CORSMiddleware,
