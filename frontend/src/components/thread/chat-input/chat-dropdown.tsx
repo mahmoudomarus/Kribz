@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronDown, User, LogIn, Lock, Bot, Zap, Code, FileText } from 'lucide-react'
+import { ChevronDown, User, LogIn, Lock, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
     DropdownMenu,
@@ -44,31 +44,6 @@ const ChatDropdown = () => {
                 </DropdownMenuItem>
 
                 <div className="relative">
-                    {/* Dummy agents behind the overlay */}
-                    <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent border-b m-0">
-                        <Bot size={18} />
-                        <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Code Assistant</span>
-                            <span className="text-xs text-muted-foreground">Help with coding</span>
-                        </div>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent border-b m-0">
-                        <Zap size={18} />
-                        <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Quick Writer</span>
-                            <span className="text-xs text-muted-foreground">Fast content creation</span>
-                        </div>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuItem className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-accent m-0">
-                        <FileText size={18} />
-                        <div className="flex flex-col">
-                            <span className="font-semibold text-sm">Document Helper</span>
-                            <span className="text-xs text-muted-foreground">Analyze documents</span>
-                        </div>
-                    </DropdownMenuItem>
-
                     {/* Overlay like the upgrade component */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-transparent flex items-end justify-center">
                         <div className="w-full p-3">

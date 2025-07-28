@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   publisher:
     'Krib AI Team - Building the future of intelligent property rentals',
   category: 'Technology',
-  applicationName: 'Suna',
+  applicationName: 'Krib AI',
   formatDetection: {
     telephone: false,
     email: false,
@@ -65,17 +65,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Suna - Open Source Generalist AI Agent',
+    title: 'Krib AI - Your AI Rental Agent',
     description:
-      'Suna is a fully open source AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
+      'Krib AI is an intelligent rental platform that helps you find, book, and manage property rentals with ease.',
     url: siteConfig.url,
-    siteName: 'Suna',
+    siteName: 'Krib AI',
     images: [
       {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 'Suna - Open Source Generalist AI Agent',
+        alt: 'Krib AI - Your AI Rental Agent',
         type: 'image/png',
       },
     ],
@@ -84,23 +84,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Suna - Open Source Generalist AI Agent',
+    title: 'Krib AI - Your AI Rental Agent',
     description:
-      'Suna is a fully open source AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
-    creator: '@kortixai',
-    site: '@kortixai',
+      'Krib AI is an intelligent rental platform that helps you find, book, and manage property rentals with ease.',
+    creator: '@kribai',
+    site: '@kribai',
     images: [
       {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 'Suna - Open Source Generalist AI Agent',
+        alt: 'Krib AI - Your AI Rental Agent',
       },
     ],
   },
   icons: {
-    icon: [{ url: '/favicon.png', sizes: 'any' }],
-    shortcut: '/favicon.png',
+    icon: [{ url: '/favicon.svg', sizes: 'any' }],
+    shortcut: '/favicon.svg',
   },
   // manifest: "/manifest.json",
   alternates: {
