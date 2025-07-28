@@ -32,7 +32,8 @@ import {
   FileText,
   CreditCard,
   CheckCircle,
-  Building
+  Building,
+  RefreshCw
 } from 'lucide-react'
 
 export interface PromptExample {
