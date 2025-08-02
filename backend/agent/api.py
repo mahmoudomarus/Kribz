@@ -1029,15 +1029,25 @@ async def initiate_agent_with_files(
         # 2. Create Sandbox
         sandbox_id = None
         try:
-            sandbox_pass = str(uuid.uuid4())
-            sandbox = await create_sandbox(sandbox_pass, project_id)
-            sandbox_id = sandbox.id
-            logger.info(f"Created new sandbox {sandbox_id} for project {project_id}")
+            # TEMPORARILY DISABLED: Sandbox creation to resolve memory issues
+            # sandbox_pass = str(uuid.uuid4())
+            # sandbox = await create_sandbox(sandbox_pass, project_id)
+            # sandbox_id = sandbox.id
+            # logger.info(f"Created new sandbox {sandbox_id} for project {project_id}")
+            
+            # Mock sandbox for testing - platform works without real sandboxes
+            sandbox_id = f"mock-sandbox-{project_id}"
+            sandbox_pass = "mock-password"
+            vnc_url = "https://mock-vnc-url.com"
+            website_url = "https://mock-website-url.com"
+            token = "mock-token"
+            
+            logger.info(f"Using mock sandbox {sandbox_id} for project {project_id} (sandbox creation disabled)")
             
             # Get preview URLs
-            vnc_url = sandbox.vnc_url
-            website_url = sandbox.website_url
-            token = sandbox.token
+            # vnc_url = sandbox.vnc_url
+            # website_url = sandbox.website_url
+            # token = sandbox.token
         except Exception as e:
             logger.error(f"Error creating sandbox: {str(e)}")
             await client.table('projects').delete().eq('project_id', project_id).execute()
