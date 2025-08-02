@@ -107,8 +107,8 @@ async def create_sandbox(password: str, project_id: str = None) -> AsyncSandbox:
             "CHROME_CDP": ""
         },
         resources=Resources(
-            cpu=2,  # Increased back to 2 CPU cores for better performance
-            memory=2,  # Increased to 2GB memory for better sandbox functionality
+            cpu=1,  # Reduced to 1 CPU to save memory
+            memory=0.25,  # Reduced to 256MB to fit within Heroku dyno limits
             disk=5,
         ),
         auto_stop_interval=15,
@@ -141,3 +141,4 @@ async def delete_sandbox(sandbox_id: str) -> bool:
     except Exception as e:
         logger.error(f"Error deleting sandbox {sandbox_id}: {str(e)}")
         raise e
+

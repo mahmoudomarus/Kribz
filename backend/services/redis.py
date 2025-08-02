@@ -37,7 +37,7 @@ def initialize():
             socket_keepalive=True,
             retry_on_timeout=True,
             health_check_interval=30,
-            max_connections=128,  # Increased back to 128 for better performance
+            max_connections=5,  # Reduced to 5 connections to save memory
             ssl_cert_reqs=None,  # Skip SSL certificate verification for Heroku Redis
         )
     else:
@@ -59,7 +59,7 @@ def initialize():
             socket_keepalive=True,
             retry_on_timeout=True,
             health_check_interval=30,
-            max_connections=128,  # Increased back to 128 for better performance
+            max_connections=5,  # Reduced to 5 connections to save memory
         )
 
     # Create Redis client from connection pool
