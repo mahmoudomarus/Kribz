@@ -107,8 +107,8 @@ async def create_sandbox(password: str, project_id: str = None) -> AsyncSandbox:
             "CHROME_CDP": ""
         },
         resources=Resources(
-            cpu=1,  # Reduced from 2 to 1 to save resources
-            memory=0.5,  # Reduced from 1GB to 512MB to fit within Heroku dyno limits
+            cpu=2,  # Increased back to 2 CPU cores for better performance
+            memory=2,  # Increased to 2GB memory for better sandbox functionality
             disk=5,
         ),
         auto_stop_interval=15,
