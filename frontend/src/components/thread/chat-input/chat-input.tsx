@@ -195,7 +195,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
           const savedAgentId = localStorage.getItem('lastSelectedAgentId');
           if (savedAgentId) {
             if (savedAgentId === 'krib') {
-                      const defaultKribAgent = agents.find(agent => agent.metadata?.is_suna_default);
+                      const defaultKribAgent = agents.find(agent => agent.metadata?.is_krib_default);
         if (defaultKribAgent) {
             onAgentSelect(defaultKribAgent.agent_id);
         } else {
@@ -205,7 +205,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
               onAgentSelect(savedAgentId);
             }
           } else {
-            const defaultKribAgent = agents.find(agent => agent.metadata?.is_suna_default);
+            const defaultKribAgent = agents.find(agent => agent.metadata?.is_krib_default);
             if (defaultKribAgent) {
               console.log('Auto-selecting default Krib AI agent:', defaultKribAgent.agent_id);
               onAgentSelect(defaultKribAgent.agent_id);
@@ -233,7 +233,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
       if (typeof window !== 'undefined' && agents.length > 0) {
         // Check if the selected agent is the Krib AI default agent
         const selectedAgent = agents.find(agent => agent.agent_id === selectedAgentId);
-        const isKribAgent = selectedAgent?.metadata?.is_suna_default || selectedAgentId === undefined;
+        const isKribAgent = selectedAgent?.metadata?.is_krib_default || selectedAgentId === undefined;
         
         // Use 'krib' as a special key for the Krib AI default agent
         const keyToStore = isKribAgent ? 'krib' : selectedAgentId;
