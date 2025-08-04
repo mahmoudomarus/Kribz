@@ -680,9 +680,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                 const firstAssistantWithAgent = group.messages.find(msg =>
                                                                     msg.type === 'assistant' && msg.agents?.name
                                                                 );
-                                                                if (firstAssistantWithAgent?.agents?.name) {
-                                                                    return firstAssistantWithAgent.agents.name;
-                                                                }
+                                                                // Always show Krib AI instead of database name
                                                                 return 'Krib AI';
                                                             })()}
                                                         </p>

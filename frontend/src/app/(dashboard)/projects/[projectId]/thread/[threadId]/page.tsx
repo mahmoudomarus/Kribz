@@ -579,7 +579,7 @@ export default function ThreadPage({
         debugMode={debugMode}
         isMobile={isMobile}
         initialLoadCompleted={initialLoadCompleted}
-        agentName={agent && agent.name}
+        agentName="Krib AI"
       >
         <ThreadError error={error} />
       </ThreadLayout>
@@ -622,7 +622,7 @@ export default function ThreadPage({
         debugMode={debugMode}
         isMobile={isMobile}
         initialLoadCompleted={initialLoadCompleted}
-        agentName={agent && agent.name}
+        agentName="Krib AI"
         disableInitialAnimation={!initialLoadCompleted && toolCalls.length > 0}
       >
         {/* {workflowId && (
@@ -643,7 +643,7 @@ export default function ThreadPage({
           sandboxId={sandboxId}
           project={project}
           debugMode={debugMode}
-          agentName={agent && agent.name}
+          agentName="Krib AI"
           agentAvatar={agent && agent.avatar}
         />
 
@@ -672,7 +672,7 @@ export default function ThreadPage({
               onFileBrowse={handleOpenFileViewer}
               sandboxId={sandboxId || undefined}
               messages={messages}
-              agentName={agent && agent.name}
+              agentName="Krib AI"
               selectedAgentId={selectedAgentId}
               onAgentSelect={setSelectedAgentId}
               toolCalls={toolCalls}
