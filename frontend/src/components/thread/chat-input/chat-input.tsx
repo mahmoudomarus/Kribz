@@ -194,23 +194,23 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
         if (!selectedAgentId && !hasAgentIdInUrl) {
           const savedAgentId = localStorage.getItem('lastSelectedAgentId');
           if (savedAgentId) {
-            if (savedAgentId === 'suna') {
-              const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
-              if (defaultSunaAgent) {
-                onAgentSelect(defaultSunaAgent.agent_id);
-              } else {
+            if (savedAgentId === 'krib') {
+                      const defaultKribAgent = agents.find(agent => agent.metadata?.is_suna_default);
+        if (defaultKribAgent) {
+            onAgentSelect(defaultKribAgent.agent_id);
+        } else {
                 onAgentSelect(undefined);
               }
             } else {
               onAgentSelect(savedAgentId);
             }
           } else {
-            const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
-            if (defaultSunaAgent) {
-              console.log('Auto-selecting default Suna agent:', defaultSunaAgent.agent_id);
-              onAgentSelect(defaultSunaAgent.agent_id);
+            const defaultKribAgent = agents.find(agent => agent.metadata?.is_suna_default);
+            if (defaultKribAgent) {
+              console.log('Auto-selecting default Krib AI agent:', defaultKribAgent.agent_id);
+              onAgentSelect(defaultKribAgent.agent_id);
             } else if (agents.length > 0) {
-              console.log('No default Suna agent found, selecting first available agent:', agents[0].agent_id);
+              console.log('No default Krib AI agent found, selecting first available agent:', agents[0].agent_id);
               onAgentSelect(agents[0].agent_id);
             } else {
               console.log('No agents available, keeping undefined');
@@ -231,12 +231,12 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
     // Save selected agent to localStorage whenever it changes
     useEffect(() => {
       if (typeof window !== 'undefined' && agents.length > 0) {
-        // Check if the selected agent is the Suna default agent
+        // Check if the selected agent is the Krib AI default agent
         const selectedAgent = agents.find(agent => agent.agent_id === selectedAgentId);
-        const isSunaAgent = selectedAgent?.metadata?.is_suna_default || selectedAgentId === undefined;
+        const isKribAgent = selectedAgent?.metadata?.is_suna_default || selectedAgentId === undefined;
         
-        // Use 'suna' as a special key for the Suna default agent
-        const keyToStore = isSunaAgent ? 'suna' : selectedAgentId;
+        // Use 'krib' as a special key for the Krib AI default agent
+        const keyToStore = isKribAgent ? 'krib' : selectedAgentId;
         console.log('Saving selected agent to localStorage:', keyToStore, 'for selectedAgentId:', selectedAgentId);
         localStorage.setItem('lastSelectedAgentId', keyToStore);
       }

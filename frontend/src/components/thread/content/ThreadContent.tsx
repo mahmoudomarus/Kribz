@@ -353,7 +353,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
     project,
     debugMode = false,
     isPreviewMode = false,
-    agentName = 'Suna',
+    agentName = 'Krib AI',
     agentAvatar = <KortixLogo size={16} />,
     emptyStateComponent,
 }) => {
@@ -652,7 +652,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                     msg.type === 'assistant' && (msg.agents?.avatar || msg.agents?.avatar_color)
                                                                 );
 
-                                                                const isSunaAgent = firstAssistantWithAgent?.agents?.name === 'Suna';
+                                                                const isSunaAgent = firstAssistantWithAgent?.agents?.name === 'Krib AI';
 
                                                                 if (firstAssistantWithAgent?.agents?.avatar) {
                                                                     const avatar = firstAssistantWithAgent.agents.avatar;
@@ -683,7 +683,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                                 if (firstAssistantWithAgent?.agents?.name) {
                                                                     return firstAssistantWithAgent.agents.name;
                                                                 }
-                                                                return 'Suna';
+                                                                return 'Krib AI';
                                                             })()}
                                                         </p>
                                                     </div>
@@ -912,7 +912,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                                 <div className="rounded-md flex items-center justify-center">
                                                     {agentAvatar}
                                                 </div>
-                                                <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Suna'}</p>
+                                                <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Krib AI'}</p>
                                             </div>
 
                                             {/* Loader content */}
@@ -932,7 +932,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                             <div className="rounded-md flex items-center justify-center">
                                                 {agentAvatar}
                                             </div>
-                                            <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Suna'}</p>
+                                            <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Krib AI'}</p>
                                         </div>
 
                                         {/* Tool call content */}
@@ -957,7 +957,7 @@ export const ThreadContent: React.FC<ThreadContentProps> = ({
                                             <div className="rounded-md flex items-center justify-center">
                                                 {agentAvatar}
                                             </div>
-                                            <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Suna'}</p>
+                                            <p className='ml-2 text-sm text-muted-foreground'>{agentName || 'Krib AI'}</p>
                                         </div>
 
                                         {/* Streaming indicator content */}
