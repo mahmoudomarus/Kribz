@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: Kribz
+    env: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    autoDeploy: true
+    dockerfilePath: backend/Dockerfile
+    healthCheckPath: /api/health
+
+  - type: worker
+    name: Kribz-worker
+    env: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    autoDeploy: true
+    dockerfilePath: backend/Dockerfile
+    startCommand: uv run dramatiq --skip-logging --processes 2 --threads 2 run_agent_background
+
