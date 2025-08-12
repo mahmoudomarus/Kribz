@@ -221,9 +221,9 @@ class Configuration:
     STRIPE_PRODUCT_ID_PROD: str = 'prod_SCl7AQ2C8kK1CD'
     STRIPE_PRODUCT_ID_STAGING: str = 'prod_SCgIj3G7yPOAWY'
     
-    # Sandbox configuration - using custom Docker Hub image
-    SANDBOX_IMAGE_NAME = "mahmoudomarus/krib-sandbox:latest"
-    SANDBOX_SNAPSHOT_NAME = "mahmoudomarus/krib-sandbox:latest"
+    # Sandbox configuration - using custom Docker Hub image with v1.0 tag
+    SANDBOX_IMAGE_NAME = "mahmoudomarus/krib-sandbox:v1.0"
+    SANDBOX_SNAPSHOT_NAME = "krib"
     SANDBOX_ENTRYPOINT = "/usr/bin/supervisord -n -c /etc/supervisor/conf.d/supervisord.conf"
 
     # LangFuse configuration
