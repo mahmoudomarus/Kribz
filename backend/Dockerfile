@@ -3,12 +3,12 @@ FROM ghcr.io/astral-sh/uv:python3.11-alpine
 ENV ENV_MODE production
 WORKDIR /app
 
-RUN apk add --no-cache curl git
+RUN apk add --no-cache curl git build-base
 
 # Install Python dependencies
 COPY pyproject.toml uv.lock ./
 ENV UV_LINK_MODE=copy
-RUN --mount=type=cache,target=/root/.cache/uv uv sync --locked --quiet
+RUN uv sync --locked
 
 # Copy application code
 COPY . .
