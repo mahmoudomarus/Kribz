@@ -1,0 +1,25 @@
+# Copy these environment variables to BOTH your Web Service and Worker in Render Dashboard
+
+# Core Application
+ENV_MODE=production
+PYTHONPATH=/app
+
+# Database (Supabase) - Update with your actual keys
+SUPABASE_URL=https://rbsswyljndnvrjnfexya.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJic3N3eWxqbmRudnJqbmZleHlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NjE1MTEsImV4cCI6MjA1MjUzNzUxMX0.T47qpK4-7O9JHhF-UmS8XfYxFW5HMGhFTBsOTZAVaDw
+SUPABASE_SERVICE_ROLE_KEY=<YOUR_SERVICE_ROLE_KEY_FROM_HEROKU>
+
+# Redis - Replace with your Upstash Redis URL
+REDIS_URL=<YOUR_UPSTASH_REDIS_URL>
+
+# RabbitMQ - Replace with your CloudAMQP URL  
+CLOUDAMQP_URL=<YOUR_CLOUDAMQP_URL>
+
+# Security - Generate a 32-character encryption key
+MCP_CREDENTIAL_ENCRYPTION_KEY=<GENERATE_32_CHAR_RANDOM_STRING>
+
+# Optional: Add these if you use them in your Heroku setup
+# SENTRY_DSN=<your_sentry_dsn>
+# LANGFUSE_SECRET_KEY=<your_langfuse_secret>
+# LANGFUSE_PUBLIC_KEY=<your_langfuse_public>
+# LANGFUSE_HOST=<your_langfuse_host>
