@@ -31,19 +31,14 @@ def initialize():
         # Use REDIS_URL for Heroku deployment
         logger.info(f"Using REDIS_URL for connection: {redis_url[:50]}...")
         
-        # Configure SSL settings for secure Redis connections (like Upstash)
-        ssl_params = {}
-        # Upstash Redis ALWAYS requires SSL, even if URL starts with redis://
-        if redis_url.startswith('rediss://') or ('ssl=true' in redis_url) or ('upstash.io' in redis_url):
-            ssl_params.update({
-                'ssl_check_hostname': False,
-                'ssl_cert_reqs': ssl.CERT_NONE
-            })
+        # Configure for Upstash Redis - always requires SSL
+        if 'upstash.io' in redis_url:
             # Convert redis:// to rediss:// for Upstash
-            if redis_url.startswith('redis://') and 'upstash.io' in redis_url:
+            if redis_url.startswith('redis://'):
                 redis_url = redis_url.replace('redis://', 'rediss://', 1)
                 logger.info("Converted Upstash Redis URL to use SSL (rediss://)")
         
+        # Create connection pool - let redis-py handle SSL automatically  
         pool = redis.ConnectionPool.from_url(
             redis_url,
             decode_responses=True,
@@ -52,8 +47,7 @@ def initialize():
             socket_keepalive=True,
             retry_on_timeout=True,
             health_check_interval=30,
-            max_connections=5,  # Reduced to 5 connections to save memory
-            **ssl_params
+            max_connections=5  # Reduced to 5 connections to save memory
         )
     else:
         # Fallback to individual components for Docker/local development
