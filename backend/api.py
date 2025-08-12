@@ -65,6 +65,18 @@ async def lifespan(app: FastAPI):
         try:
             await redis.initialize_async()
             logger.info("Redis connection initialized successfully")
+            
+            # Initialize essential feature flags for production
+            if config.ENV_MODE == EnvMode.PRODUCTION:
+                from flags.flags import enable_flag
+                try:
+                    await enable_flag("custom_agents", "Enable custom agent features for production")
+                    await enable_flag("knowledge_base", "Enable knowledge base features for production") 
+                    await enable_flag("agent_triggers", "Enable agent triggers for production")
+                    logger.info("Essential production feature flags initialized")
+                except Exception as e:
+                    logger.warning(f"Failed to initialize production feature flags: {e}")
+                    
         except Exception as e:
             logger.error(f"Failed to initialize Redis connection: {e}")
             # Continue without Redis - the application will handle Redis failures gracefully
