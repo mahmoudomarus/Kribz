@@ -6,7 +6,7 @@ PYTHONPATH=/app
 
 # Database (Supabase) - Update with your actual keys
 SUPABASE_URL=https://rbsswyljndnvrjnfexya.supabase.co
-SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJic3N3eWxqbmRudnJqbmZleHlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NjE1MTEsImV4cCI6MjA1MjUzNzUxMX0.T47qpK4-7O9JHhF-UmS8XfYxFW5HMGhFTBsOTZAVaDw
+SUPABASE_ANON_KEY=<YOUR_SUPABASE_ANON_KEY>
 SUPABASE_SERVICE_ROLE_KEY=<YOUR_SERVICE_ROLE_KEY_FROM_HEROKU>
 
 # Redis - Replace with your Upstash Redis URL
