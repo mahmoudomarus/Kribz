@@ -108,7 +108,7 @@ async def create_sandbox(password: str, project_id: str = None) -> AsyncSandbox:
         },
         resources=Resources(
             cpu=2,  # Increased CPU for better performance
-            memory=1.0,  # Increased to 1GB for Render compatibility
+            memory=4.0,  # Increased to 4GB as requested
             disk=10,  # Increased storage
         ),
         auto_stop_interval=15,
