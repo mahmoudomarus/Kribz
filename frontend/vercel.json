@@ -2,10 +2,5 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "devCommand": "npm run dev",
-  "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "https://rbsswyljndnvrjnfexya.supabase.co",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJic3N3eWxqbmRudnJqbmZleHlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5NjE1MTEsImV4cCI6MjA1MjUzNzUxMX0.T47qpK4-7O9JHhF-UmS8XfYxFW5HMGhFTBsOTZAVaDw",
-    "NEXT_PUBLIC_BACKEND_URL": "https://kribai-f4ba8309f76d.herokuapp.com"
-  }
+  "devCommand": "npm run dev"
 } 
