@@ -33,11 +33,16 @@ def initialize():
         
         # Configure SSL settings for secure Redis connections (like Upstash)
         ssl_params = {}
-        if redis_url.startswith('rediss://') or ('ssl=true' in redis_url):
+        # Upstash Redis ALWAYS requires SSL, even if URL starts with redis://
+        if redis_url.startswith('rediss://') or ('ssl=true' in redis_url) or ('upstash.io' in redis_url):
             ssl_params.update({
                 'ssl_check_hostname': False,
                 'ssl_cert_reqs': ssl.CERT_NONE
             })
+            # Convert redis:// to rediss:// for Upstash
+            if redis_url.startswith('redis://') and 'upstash.io' in redis_url:
+                redis_url = redis_url.replace('redis://', 'rediss://', 1)
+                logger.info("Converted Upstash Redis URL to use SSL (rediss://)")
         
         pool = redis.ConnectionPool.from_url(
             redis_url,
