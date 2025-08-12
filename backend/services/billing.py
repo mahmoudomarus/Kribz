@@ -118,11 +118,33 @@ async def create_stripe_customer(client, user_id: str, email: str) -> str:
     return customer.id
 
 async def get_user_subscription(user_id: str) -> Optional[Dict]:
-    """Get the current subscription for a user from Stripe."""
+    """Get the current subscription for a user from Stripe or manual database entries."""
     try:
-        # Get customer ID
+        # First check for manual subscriptions in the database
         db = DBConnection()
         client = await db.client
+        
+        # Check for manual subscriptions first
+        manual_subscription = await client.table('billing_subscriptions').select('*').eq('account_id', user_id).eq('status', 'active').execute()
+        
+        if manual_subscription.data:
+            # Return manual subscription in Stripe-compatible format
+            manual_sub = manual_subscription.data[0]
+            return {
+                'id': manual_sub['id'],
+                'status': manual_sub['status'],
+                'items': {
+                    'data': [{
+                        'price': {
+                            'id': manual_sub['price_id']
+                        }
+                    }]
+                },
+                'price_id': manual_sub['price_id'],
+                'plan_name': manual_sub['plan_name']
+            }
+        
+        # If no manual subscription, check Stripe
         customer_id = await get_stripe_customer_id(client, user_id)
         
         if not customer_id:
