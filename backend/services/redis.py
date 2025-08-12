@@ -1,5 +1,6 @@
 import redis.asyncio as redis
 import os
+import ssl
 from dotenv import load_dotenv
 import asyncio
 from utils.logger import logger
@@ -29,6 +30,15 @@ def initialize():
     if redis_url:
         # Use REDIS_URL for Heroku deployment
         logger.info(f"Using REDIS_URL for connection: {redis_url[:50]}...")
+        
+        # Configure SSL settings for secure Redis connections (like Upstash)
+        ssl_params = {}
+        if redis_url.startswith('rediss://') or ('ssl=true' in redis_url):
+            ssl_params.update({
+                'ssl_check_hostname': False,
+                'ssl_cert_reqs': ssl.CERT_NONE
+            })
+        
         pool = redis.ConnectionPool.from_url(
             redis_url,
             decode_responses=True,
@@ -38,7 +48,7 @@ def initialize():
             retry_on_timeout=True,
             health_check_interval=30,
             max_connections=5,  # Reduced to 5 connections to save memory
-            ssl_cert_reqs=None,  # Skip SSL certificate verification for Heroku Redis
+            **ssl_params
         )
     else:
         # Fallback to individual components for Docker/local development
