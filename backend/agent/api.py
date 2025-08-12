@@ -1035,10 +1035,12 @@ async def initiate_agent_with_files(
             sandbox_id = sandbox.id
             logger.info(f"Created new sandbox {sandbox_id} for project {project_id}")
             
-            # Get preview URLs
-            vnc_url = sandbox.vnc_url
-            website_url = sandbox.website_url
-            token = sandbox.token
+            # Get preview URLs using the correct method
+            vnc_preview = await sandbox.get_preview_link(6080)  # VNC port
+            website_preview = await sandbox.get_preview_link(8080)  # Website port
+            vnc_url = vnc_preview.url if hasattr(vnc_preview, 'url') else str(vnc_preview)
+            website_url = website_preview.url if hasattr(website_preview, 'url') else str(website_preview)
+            token = getattr(sandbox, 'token', None)  # Use getattr in case token doesn't exist
         except Exception as e:
             logger.error(f"Error creating sandbox: {str(e)}")
             await client.table('projects').delete().eq('project_id', project_id).execute()
