@@ -8,7 +8,7 @@ RUN apk add --no-cache curl git build-base
 # Install Python dependencies
 COPY pyproject.toml uv.lock ./
 ENV UV_LINK_MODE=copy
-RUN uv sync --locked
+RUN uv sync
 
 # Copy application code
 COPY . .
