@@ -125,7 +125,7 @@ async def get_user_subscription(user_id: str) -> Optional[Dict]:
         client = await db.client
         
         # Check for manual subscriptions first
-        manual_subscription = await client.table('billing_subscriptions').select('*').eq('account_id', user_id).eq('status', 'active').execute()
+        manual_subscription = await client.schema('basejump').from_('billing_subscriptions').select('*').eq('account_id', user_id).eq('status', 'active').execute()
         
         if manual_subscription.data:
             # Return manual subscription in Stripe-compatible format
