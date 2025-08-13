@@ -144,17 +144,26 @@ async def get_user_subscription(user_id: str) -> Optional[Dict]:
                 'plan_name': manual_sub['plan_name']
             }
         
-        # If no manual subscription, check Stripe
-        customer_id = await get_stripe_customer_id(client, user_id)
-        
-        if not customer_id:
+        # If no manual subscription, check Stripe (only if Stripe is configured)
+        try:
+            if hasattr(config, 'STRIPE_SECRET_KEY') and config.STRIPE_SECRET_KEY:
+                customer_id = await get_stripe_customer_id(client, user_id)
+                
+                if not customer_id:
+                    return None
+                    
+                # Get all active subscriptions for the customer
+                subscriptions = stripe.Subscription.list(
+                    customer=customer_id,
+                    status='active'
+                )
+            else:
+                # No Stripe configuration, return None
+                return None
+        except Exception as stripe_error:
+            # Stripe API error (e.g., no API key), fall back to no subscription
+            logger.warning(f"Stripe API error: {str(stripe_error)}, falling back to manual subscriptions only")
             return None
-            
-        # Get all active subscriptions for the customer
-        subscriptions = stripe.Subscription.list(
-            customer=customer_id,
-            status='active'
-        )
         # print("Found subscriptions:", subscriptions)
         
         # Check if we have any subscriptions
