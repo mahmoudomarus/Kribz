@@ -137,11 +137,17 @@ async def get_user_subscription(user_id: str) -> Optional[Dict]:
                     'data': [{
                         'price': {
                             'id': manual_sub['price_id']
-                        }
+                        },
+                        'current_period_end': int(datetime.now().timestamp()) + (30 * 24 * 60 * 60)  # 30 days from now
                     }]
                 },
                 'price_id': manual_sub['price_id'],
-                'plan_name': manual_sub['plan_name']
+                'plan_name': manual_sub['plan_name'],
+                'plan': {
+                    'nickname': manual_sub['plan_name']
+                },
+                'cancel_at_period_end': False,
+                'trial_end': None
             }
         
         # If no manual subscription, check Stripe (only if Stripe is configured)
