@@ -26,7 +26,7 @@ import { NavUserWithTeams } from '@/components/sidebar/nav-user-with-teams';
 const hostNavItems = [
   {
     title: 'Dashboard',
-    url: '/property-host/dashboard',
+    url: '/property-host/host-dashboard',
     icon: Home,
   },
   {

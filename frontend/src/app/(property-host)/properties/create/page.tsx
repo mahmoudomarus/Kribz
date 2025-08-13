@@ -129,7 +129,7 @@ export default function CreateProperty() {
       {/* Header */}
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="sm" asChild>
-          <Link href="/property-host/dashboard" className="flex items-center gap-2">
+          <Link href="/property-host/host-dashboard" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Back to Dashboard
           </Link>
@@ -360,7 +360,7 @@ export default function CreateProperty() {
         {/* Submit */}
         <div className="flex justify-end gap-4">
           <Button type="button" variant="outline" asChild>
-            <Link href="/property-host/dashboard">Cancel</Link>
+            <Link href="/property-host/host-dashboard">Cancel</Link>
           </Button>
           <Button type="submit" disabled={isLoading}>
             {isLoading ? 'Creating...' : 'Create Property'}
